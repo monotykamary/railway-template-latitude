@@ -2,7 +2,7 @@
 
 Deploy a production-oriented [Latitude](https://github.com/latitude-dev/latitude-llm) observability stack on Railway with immutable application and infrastructure sources.
 
-The Deploy on Railway button will be added after the replacement marketplace route is published and independently verified.
+[![Deploy on Railway](https://railway.com/button.svg)](https://railway.com/deploy/latitude-1?referralCode=ZqgrJ0)
 
 ## What this deploys
 
