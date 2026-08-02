@@ -31,7 +31,7 @@ Upstream release workflow evidence: [v0.3.72 succeeded](https://github.com/latit
 
 ## Required setup
 
-A working email transport is required for magic-link login. After deployment, set one supported transport on the `web` service; the shared template variables propagate it to the services that need it. SMTP, Mailgun, and SendGrid are supported.
+A working email transport is required for magic-link login. After deployment, set one supported transport on the `web` service; the shared template variables propagate it to the services that need it. Use authenticated SMTP (including SendGrid SMTP) or Mailgun, then redeploy the application services.
 
 Then open the `web` domain, register, follow the emailed magic link, and create the first organization.
 

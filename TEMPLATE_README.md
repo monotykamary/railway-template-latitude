@@ -8,7 +8,7 @@ This template deploys the six matching Latitude `0.3.72` application images: the
 
 The `web`, `api`, and `ingest` services each own a Railway HTTPS domain. PostgreSQL, ClickHouse, Redis, and Temporal remain private. Secrets and infrastructure passwords are generated per deployment and wired through service references.
 
-A working email transport is required for magic-link sign-in. Configure SMTP, Mailgun, or SendGrid after deployment, then open the `web` domain, register, follow the emailed link, and create the first organization.
+A working email transport is required for magic-link sign-in. Configure authenticated SMTP (including SendGrid SMTP) or Mailgun on the `web` service, redeploy the application services, then open the `web` domain, register, follow the emailed link, and create the first organization.
 
 ## Common Use Cases
 
@@ -25,7 +25,7 @@ A working email transport is required for magic-link sign-in. Configure SMTP, Ma
 - Redis for caching, locks, rate limits, and durable BullMQ queues.
 - Temporal for durable workflows.
 - Railway object storage for shared ingest payloads, datasets, and exports.
-- An external SMTP, Mailgun, or SendGrid account for production login email.
+- An external authenticated SMTP or Mailgun account for production login email.
 - Optional AI-provider accounts for generation, embeddings, and reranking features.
 
 ### Deployment Dependencies
