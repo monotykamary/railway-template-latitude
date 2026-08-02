@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate shell scripts
+        run: bash -n postgres/init-db.sh
+      - name: Reject mutable production sources
+        run: |
+          if grep -R -nE 'FROM .+:(latest|main)(@|$)' postgres clickhouse; then
+            echo 'Mutable base image found'
+            exit 1
+          fi
+      - name: Verify marketplace overview sections
+        run: |
+          grep -q '^# Deploy and Host Latitude on Railway$' TEMPLATE_README.md
+          grep -q '^## Dependencies for Latitude Hosting$' TEMPLATE_README.md
+          grep -q '^### Deployment Dependencies$' TEMPLATE_README.md
+          grep -q '^### Implementation Details$' TEMPLATE_README.md
+          grep -q '^### Why Deploy Latitude on Railway?$' TEMPLATE_README.md
