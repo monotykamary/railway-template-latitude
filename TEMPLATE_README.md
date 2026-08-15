@@ -1,10 +1,10 @@
 # Deploy and Host Latitude on Railway
 
-Deploy Latitude `v0.3.78`, an open-source observability platform for AI agents and LLM applications. Capture OpenTelemetry traces, inspect sessions and tool calls, evaluate output quality, and use the API or MCP server from a complete Railway-hosted stack.
+Deploy Latitude `v0.3.80`, an open-source observability platform for AI agents and LLM applications. Capture OpenTelemetry traces, inspect sessions and tool calls, evaluate output quality, and use the API or MCP server from a complete Railway-hosted stack.
 
 ## About Hosting Latitude
 
-This template deploys the six matching Latitude `0.3.78` application images: the web UI, public API and MCP server, OTLP ingest, BullMQ workers, Temporal workflow workers, and a one-shot migrations job. PostgreSQL with pgvector, ClickHouse, Redis, Temporal, and a Railway object-storage bucket provide the backing infrastructure.
+This template deploys the six matching Latitude `0.3.80` application images: the web UI, public API and MCP server, OTLP ingest, BullMQ workers, Temporal workflow workers, and a one-shot migrations job. PostgreSQL with pgvector, ClickHouse, Redis, Temporal, and a Railway object-storage bucket provide the backing infrastructure.
 
 The `web`, `api`, and `ingest` services each own a Railway HTTPS domain. PostgreSQL, ClickHouse, Redis, and Temporal remain private. Secrets and infrastructure passwords are generated per deployment and wired through service references.
 
@@ -30,7 +30,7 @@ A working email transport is required for magic-link sign-in. Configure authenti
 
 ### Deployment Dependencies
 
-- [Latitude v0.3.78 source](https://github.com/latitude-dev/latitude-llm/tree/fb523fc6b2acc41215117cfab35bbd9d6ad975cd)
+- [Latitude v0.3.80 source](https://github.com/latitude-dev/latitude-llm/tree/9606fe4191417f0a0cce45bfe25e3c2d83c06c9e)
 - [Self-hosting guide](https://docs.latitude.so/deployment/single-host)
 - [Configuration reference](https://docs.latitude.so/deployment/configuration)
 - [Official service images](https://hub.docker.com/u/latitudedata)
@@ -38,7 +38,7 @@ A working email transport is required for magic-link sign-in. Configure authenti
 
 ### Implementation Details
 
-The template pins all six Latitude services to the same stable release and immutable OCI digests. `v0.3.78` is used because its release workflow published a complete matching service set; incomplete `v0.3.73` through `v0.3.76` tags are deliberately skipped.
+The template pins all six Latitude services to the same stable release and immutable OCI digests. `v0.3.80` is used because its release workflow published a complete matching service set; `v0.3.79` and `v0.3.81` are deliberately skipped because their cancelled image workflows left the `web` image unpublished.
 
 The PostgreSQL and ClickHouse services use small, auditable adapters from the template repository to install the upstream initialization and storage-policy files. A Railway bucket replaces the bundled single-node SeaweedFS service. One persistent Redis service supplies both Redis roles supported by Latitude and runs with AOF plus `noeviction` for queue durability.
 
