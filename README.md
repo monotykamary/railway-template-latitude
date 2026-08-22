@@ -6,7 +6,7 @@ Deploy a production-oriented [Latitude](https://github.com/latitude-dev/latitude
 
 ## What this deploys
 
-- Latitude `v0.3.80`: web UI, public API/MCP server, OTLP ingest, BullMQ workers, Temporal workflows, and one-shot migrations
+- Latitude `v0.3.83`: web UI, public API/MCP server, OTLP ingest, BullMQ workers, Temporal workflows, and one-shot migrations
 - PostgreSQL 16 with pgvector
 - ClickHouse 26.2
 - Redis 7.4 for cache and durable BullMQ queues
@@ -15,11 +15,11 @@ Deploy a production-oriented [Latitude](https://github.com/latitude-dev/latitude
 
 The web, API, and ingest services receive separate Railway HTTPS domains. All stateful protocols stay private.
 
-## Why v0.3.80
+## Why v0.3.83
 
-`v0.3.80` is the newest stable Latitude tag with a complete six-image publication. The adjacent `v0.3.79` and `v0.3.81` releases are missing the `web` image after cancelled image workflows. This template will not mix application versions or substitute a development build.
+`v0.3.83` is the newest stable Latitude tag with a complete six-image publication. The newer `v0.3.84` image workflow was cancelled, so this template will not mix application versions or substitute a development build.
 
-Upstream release workflow evidence: [v0.3.80 succeeded](https://github.com/latitude-dev/latitude-llm/actions/runs/31726792273); [v0.3.81 was cancelled](https://github.com/latitude-dev/latitude-llm/actions/runs/31814867237).
+Upstream release workflow evidence: [v0.3.83 succeeded](https://github.com/latitude-dev/latitude-llm/actions/runs/32146686595); [v0.3.84 was cancelled](https://github.com/latitude-dev/latitude-llm/actions/runs/32255257826).
 
 ## Railway adaptations
 
@@ -48,12 +48,12 @@ AI provider credentials are optional. Core OTLP trace ingestion and trace viewin
 
 | Component | Version |
 | --- | --- |
-| Latitude applications | `0.3.80` at per-image OCI digests |
+| Latitude applications | `0.3.83` at per-image OCI digests |
 | pgvector PostgreSQL | `0.8.1-pg16` |
 | ClickHouse | `26.2.19.43` |
 | Redis | `7.4.7-alpine` |
 | Temporal auto-setup | `1.27.2` |
-| Upstream source | [`9606fe4191417f0a0cce45bfe25e3c2d83c06c9e`](https://github.com/latitude-dev/latitude-llm/tree/9606fe4191417f0a0cce45bfe25e3c2d83c06c9e) |
+| Upstream source | [`eb62ee07de978e3f35142976f1773fc61d7a8ca2`](https://github.com/latitude-dev/latitude-llm/tree/eb62ee07de978e3f35142976f1773fc61d7a8ca2) |
 
 ## Updating
 
@@ -71,4 +71,4 @@ Latitude source and the derived logo asset are MIT-licensed. See [UPSTREAM.md](U
 - [Latitude source](https://github.com/latitude-dev/latitude-llm)
 - [Deployment documentation](https://docs.latitude.so/deployment/overview)
 - [Configuration reference](https://docs.latitude.so/deployment/configuration)
-- [Stable source tag](https://github.com/latitude-dev/latitude-llm/tree/v0.3.80)
+- [Stable source tag](https://github.com/latitude-dev/latitude-llm/tree/v0.3.83)
