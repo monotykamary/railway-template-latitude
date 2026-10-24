@@ -50,7 +50,7 @@ AI provider credentials are optional. Core OTLP trace ingestion and trace viewin
 | --- | --- |
 | Latitude applications | `0.3.92` at per-image OCI digests |
 | pgvector PostgreSQL | `0.8.7-pg16` |
-| ClickHouse | `26.2.19.43` |
+| ClickHouse | `26.10.2.103` |
 | Redis | `7.4.7-alpine` |
 | Temporal auto-setup | `1.27.2` |
 | Upstream source | [`2c129d80d27f2f5c96dec1a889cca38217f862f2`](https://github.com/latitude-dev/latitude-llm/tree/2c129d80d27f2f5c96dec1a889cca38217f862f2) |
